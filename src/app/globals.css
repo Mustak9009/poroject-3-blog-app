@@ -2,3 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: greenyellow;
+  }
+::selection {
+    color: black;
+    background: greenyellow;
+}
+.Blog_post_description{ /*Create a description... wrapping style*/
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
