@@ -24,27 +24,27 @@ export default function NavBar() {
         <div className='w-full flex-[6] py-3 px-1'>
           <ul className='flex justify-center items-center gap-5 lg:gap-10 font-semibold flex-wrap'>
             <li>
-              <Link href={'#'}>
+              <Link href={'/'} className='hover:text-gray-500'>
                HOME
               </Link>
             </li>
             <li>
-              <Link href={'#'}>
-               ABOUT
+              <Link href={'#'} className='hover:text-gray-500'>
+               POSTS
               </Link>
             </li>
             <li>
-              <Link href={'#'}>
+              <Link href={'#'} className='hover:text-gray-500'>
                CONTACT
               </Link>
             </li>
             <li>
-              <Link href={'#'}>
+              <Link href={'/write'} className='hover:text-gray-500'>
                WRITE
               </Link>
             </li>
             <li>
-              <Link href={'#'}>
+              <Link href={'#'} className='hover:text-gray-500'>
                LOGOUT
               </Link>
             </li>
@@ -52,7 +52,9 @@ export default function NavBar() {
         </div>
         <div className='w-full flex-[3] py-3 px-1 hidden lg:block'>
           <div className='flex lg:justify-center lg:items-center gap-3'>
-            <BiUserCircle className='text-4xl hidden lg:block'/>
+            <Link href={'/settings'}>
+              <BiUserCircle className='text-4xl hidden lg:block'/>
+            </Link>
             <div className='flex justify-center items-center border gap-2 py-1 px-2 rounded-md border-black'>
               <label htmlFor="search">
                 <BiSearchAlt/>

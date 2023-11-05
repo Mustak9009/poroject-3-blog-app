@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from 'next/link';
 function Post() {
   return (
     <div className="w-full md:max-w-[21.9rem] px-5 space-y-5">
@@ -10,7 +11,11 @@ function Post() {
           <span>Life</span>
         </div>
         <section className="space-y-1">
-          <h2 className="text-xl lg:text-2xl font-josefinSans cursor-pointer hover:underline">Lorem ipsum dolor sit amet.</h2>
+          <h2 className="text-xl lg:text-2xl font-josefinSans cursor-pointer hover:underline">
+            <Link href={'/posts/lorem-ipsum-dolor-sit-amet'}>
+              Lorem ipsum dolor sit amet.
+            </Link>
+          </h2>
           <p className="text-gray-700 font-verelaRound Blog_post_description">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil esse
             facere deserunt ullam accusantium soluta laborum eveniet nostrum

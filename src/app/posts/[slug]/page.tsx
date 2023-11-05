@@ -1,5 +1,5 @@
 import React from "react";
-import { SideBar, NavBar } from "../Components";
+import { SideBar, NavBar } from "../../Components";
 import Image from "next/image";
 const Post = () => {
   return (
@@ -15,7 +15,7 @@ const Post = () => {
               Lorem ipsum dolor sit amet.
             </h2>
             <article className="space-y-7">
-              <p className="text-gray-700 font-verelaRound">
+              <p className="text-gray-700 font-verelaRound first-letter:text-3xl first-letter:font-bold indent-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
                 perspiciatis dolor quidem voluptatibus! Natus placeat veritatis
                 illum quisquam pariatur. Exercitationem similique vitae natus
@@ -68,7 +68,6 @@ const Post = () => {
 export default function PostPage() {
   return (
     <div className="w-full h-full">
-      <NavBar />
       <main className="grid lg:grid-cols-[75%_1fr] gap-5 pt-10">
         <Post />
         <SideBar />
