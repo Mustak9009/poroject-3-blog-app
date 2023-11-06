@@ -18,3 +18,10 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.credentials{
+    height:calc(100vh - 76px);
+    background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)),url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @apply flex justify-center items-center border flex-col font-lora;
+}
