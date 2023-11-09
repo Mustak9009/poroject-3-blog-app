@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images:{
-        domains:['images.pexels.com','images.remotePatterns']
+        remotePatterns: [ //new process to add 'img' url
+            {
+                protocol: 'https',
+                hostname: 'images.pexels.com',
+                pathname: '**',
+            },
+        ],
     }
 }
 

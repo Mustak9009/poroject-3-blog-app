@@ -29,7 +29,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <Link href={'#'} className='hover:text-gray-500'>
+              <Link href={'/posts'} className='hover:text-gray-500'>
                POSTS
               </Link>
             </li>

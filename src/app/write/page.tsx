@@ -1,7 +1,11 @@
+'use client'
 import React from 'react'
 import {AiOutlinePlusCircle} from 'react-icons/ai';
 import Image from 'next/image';
+
+
 export default function Write() {
+
   return (
     <div className='w-full h-screen mt-12 font-verelaRound'>
       <div className='grid place-items-center mb-5 relative'>
