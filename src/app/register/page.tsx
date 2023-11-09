@@ -3,8 +3,12 @@ import React from "react";
 import Link from "next/link";
 import {useFormik} from 'formik';
 import {RegisterSchema} from '@/schema';
+import {useMutation} from '@tanstack/react-query';
+import {RegisterNewUser} from '@/handler/apiHandler';
+import {redirect} from 'next/navigation';
 export default function Register() {
-  const {handleChange,values,handleSubmit,handleBlur,errors} = useFormik({
+  const {mutate,data:newUser,isPending} = useMutation({mutationKey:['register'],mutationFn:RegisterNewUser})
+  const {handleChange,values,handleSubmit,handleBlur,errors,resetForm} = useFormik({
     validationSchema:RegisterSchema,
     initialValues:{
       userName:'',
@@ -12,12 +16,28 @@ export default function Register() {
       password:'',
       user_type:'USER'
     },
-    onSubmit:(values)=>{
-      console.log(values)
+    onSubmit:({userName,email,password,user_type})=>{
+        mutate({userName,email,password,user_type});
+        resetForm();
     }
-  })
+  });
+  if(isPending){
+    return(
+      <div className="w-full h-screen bg-white flex justify-center items-center">
+        <span>Loading...</span>
+      </div>
+    )
+  }
+  if(newUser && !newUser.error){
+    redirect('/login');
+  }
   return (
     <div className="credentials">
+      {newUser && newUser.error && (
+        <div className="bg-red-500 py-2 px-1 rounded-md w-[70%] lg:w-[20%] text-white font-bold text-center mb-10">
+          <span>{newUser.message}</span>
+        </div>
+      )}
       <span className="text-4xl">Register</span>
       <form method="POST" className="w-[70%] lg:w-[20%]" onSubmit={handleSubmit}>
         <div className="flex flex-col my-3">
