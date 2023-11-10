@@ -4,9 +4,13 @@ type RegisterNewUserPropsType = {
     password:string,
     user_type:string
 }
+interface LoginUserPropsType{
+    email:string,
+    password:string,
+}
 export const RegisterNewUser = async({userName,email,password,user_type}:RegisterNewUserPropsType)=>{
     try{
-        const data = await fetch("/api/user/register",{
+        const data = await fetch("/api/auth/register",{
             method: "POST",     
             headers: {
                 "Content-Type": "application/json",

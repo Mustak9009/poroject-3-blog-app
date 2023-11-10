@@ -3,8 +3,11 @@ import {AiFillInstagram,AiFillLinkedin} from 'react-icons/ai';
 import {BsTwitter} from 'react-icons/bs';
 import {BiUserCircle,BiSearchAlt} from 'react-icons/bi';
 import Link from 'next/link';
-
-export default function NavBar() {
+import {getServerSession} from 'next-auth';
+import {authOption} from '@/app/api/auth/[...nextauth]/authOption';
+export default async function NavBar() {
+  const session = await getServerSession(authOption);
+  console.log(session);
   return (
     <nav className='w-full h-full font-josefinSans'>
       <div className='mx-5 py-2 lg:flex lg:justify-center lg:items-center lg:gap-5'>

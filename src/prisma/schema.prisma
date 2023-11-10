@@ -10,10 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserType {
+  USER
+  AUTHOR
+}
+
 model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  userName String @unique
-  email    String @unique
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  userName String   @unique
+  email    String   @unique
+  role     UserType @default(USER)
   password String
-  role     String @default("USER")
 }

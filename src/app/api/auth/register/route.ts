@@ -16,7 +16,7 @@ export const POST = async (req:NextRequest) =>{
         if(isUserExist){
             return NextResponse.json({message:"User already exist"},{status:409});
         }
-        const createAUser =await prisma.user.create({data:{
+        const createAUser = await prisma.user.create({data:{
             userName,
             email,
             password:hashPassword,
