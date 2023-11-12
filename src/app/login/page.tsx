@@ -17,7 +17,7 @@ export default function Login() {
     },
     onSubmit:({email,password})=>{
       setLoading(true);
-      signIn('credentials',{email,password,redirect:true,callbackUrl:'http://localhost:3000'});
+      signIn('credentials',{email,password,redirect:true,callbackUrl:process.env.NEXTAUTH_URL});
     }
   });
   if(loading){
@@ -47,7 +47,7 @@ export default function Login() {
                 <p className="text-sm text-red-500 ">{errors.password}</p>
             </div>
             <p className='font-normal'>
-              Don't have an account? <Link href={'/register'} className='text-teal-500 hover:underline'>Register</Link>
+              Dont have an account? <Link href={'/register'} className='text-teal-500 hover:underline'>Register</Link>
             </p>
             <button type='submit' className='bg-teal-500 px-2 py-1 rounded-md mt-3'>Login</button>
         </form>

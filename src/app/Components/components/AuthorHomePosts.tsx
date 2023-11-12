@@ -15,7 +15,7 @@ export default function Hero({ authorID }: { authorID: string }) {
   if(posts.length == 0 && !isLoading){
     return(
       <div className="text-center w-full mt-10 text-xl font-josefinSans space-y-2">
-        <p className="text-2xl">You don't have any posts right now.</p>
+        <p className="text-2xl">You don&apos;t have any posts right now.</p>
         <div className="space-y-1 mt-10">
           <p><Link href={'/write'} className="text-teal-500 underline">Create</Link> post.</p>
           <p>
