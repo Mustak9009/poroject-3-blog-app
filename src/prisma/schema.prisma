@@ -21,4 +21,15 @@ model User {
   email    String   @unique
   role     UserType @default(USER)
   password String
+  posts    Posts[]
+}
+
+model Posts {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  img         String?  @default("https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String   @db.ObjectId
 }
