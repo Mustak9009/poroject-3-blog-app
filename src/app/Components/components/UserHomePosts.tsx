@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import Post from './Post';
 export default  function Posts() {
   const [posts,setPosts] = useState<PostsType[]>([]);
-  const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts});
+  const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts,staleTime: 3 * 60 * 60 * 1000});
   useEffect(()=>{
     if(data){
       const {posts} = data;
