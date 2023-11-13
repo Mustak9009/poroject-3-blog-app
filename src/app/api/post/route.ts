@@ -4,7 +4,7 @@ import { prisma } from "@/prisma";
 ConnectDB();
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
-export const fetchCache  = 'no-store'
+export const fetchCache  = 'force-no-store'
 export const GET = async (req: NextRequest) => {
     try{
         const url = new URL(req.url);
