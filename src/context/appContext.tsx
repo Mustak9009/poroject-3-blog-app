@@ -6,7 +6,7 @@ const queryClient = new QueryClient();
 export default function AppContext({children}:{children:React.ReactNode}) {
   return (
     <QueryClientProvider client={queryClient}>
-        <SessionProvider basePath="/api">
+        <SessionProvider>
           {children}  
         </SessionProvider>
     </QueryClientProvider>
