@@ -35,12 +35,12 @@ const Post = ({post}:{post:{img:string,title:string,description:string,createdAt
   );
 };
 export default async function PostPage({params,searchParams}:{ params: { postId: string }; searchParams?: { [key: string]: string | string[] | undefined }}) {
-  // const post  = await getPost({postId:params.postId});
-
+  const post  = await getPost({postId:params.postId});
+  
   return (
     <div className="w-full h-full">
       <main className="grid lg:grid-cols-[75%_1fr] gap-5 pt-10">
-        {/* <Post {...{...post}}/> */}
+        <Post {...{...post}}/>
         <SideBar />
       </main>
     </div>
