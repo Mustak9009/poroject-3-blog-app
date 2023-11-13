@@ -6,6 +6,9 @@ import {RegisterSchema} from '@/schema';
 import {useMutation} from '@tanstack/react-query';
 import {RegisterNewUser} from '@/handler/apiHandler';
 import {redirect} from 'next/navigation';
+export const dynamic = 'force-static'
+export const revalidate = 3 * 60 * 60 * 1000
+export const fetchCache  = 'force-cache'
 export default function Register() {
   const {mutate,data:newUser,isPending} = useMutation({mutationKey:['register'],mutationFn:RegisterNewUser})
   const {handleChange,values,handleSubmit,handleBlur,errors,resetForm} = useFormik({

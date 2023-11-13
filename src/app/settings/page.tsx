@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import {BsCamera} from 'react-icons/bs';
+export const dynamic = 'force-static'
+export const revalidate = 3 * 60 * 60 * 1000
+export const fetchCache  = 'force-cache'
 export default function Settings() {
   return (
     <div className="px-5 w-full sm:w-[84%] mx-auto mt-10 font-youngSerif">

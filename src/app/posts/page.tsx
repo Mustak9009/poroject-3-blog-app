@@ -3,6 +3,9 @@ import React, { useState,useEffect} from "react";
 import {getPosts} from '@/handler/apiHandler';
 import { useQuery } from "@tanstack/react-query";
 import {Post} from '../Components';
+export const dynamic = 'force-static'
+export const revalidate = 3 * 60 * 60 * 1000
+export const fetchCache  = 'force-cache'
 export default  function Posts() {
   const [posts,setPosts] = useState<PostsType[]>([]);
   const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts,staleTime: 3 * 60 * 60 * 1000});
