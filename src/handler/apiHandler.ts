@@ -66,9 +66,7 @@ export const getPosts = async()=>{
 }
 export const getAllAuthorPosts = async({authorId}:{authorId:string})=>{
     try{
-        const data = await fetch(`/api/authorPost/?authorID=${authorId}`,{
-                cache:'no-store',
-        });
+        const data = await fetch(`/api/authorPost/?authorID=${authorId}`);
         const res = await data.json();
         return res;
     }catch(err){
@@ -86,9 +84,7 @@ export const checkEnvironment = () => {
   };
 export const getPost = async({postId}:{postId:string})=>{
     try{
-        const data = await fetch(checkEnvironment().concat(`/api/post/?postId=${postId}`),{
-            cache:'no-store'
-        });
+        const data = await fetch(checkEnvironment().concat(`/api/post/?postId=${postId}`));
         const res = await data.json();
         return res;
     }catch(err){
