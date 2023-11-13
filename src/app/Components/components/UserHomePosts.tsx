@@ -3,9 +3,10 @@ import React, { useState,useEffect} from "react";
 import {getPosts} from '@/handler/apiHandler';
 import { useQuery } from "@tanstack/react-query";
 import Post from './Post';
+export const revalidate = 0
 export default  function Posts() {
   const [posts,setPosts] = useState<PostsType[]>([]);
-  const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts,staleTime: 3 * 60 * 60 * 1000});
+  const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts});
   useEffect(()=>{
     if(data){
       const {posts} = data;

@@ -7,7 +7,6 @@ const monthNames = [
   'January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
-export const revalidate = 0
 const Post = ({post}:{post:{img:string,title:string,description:string,createdAt:string}}) => {
   const data = new Date(post.createdAt);
   const text = post.description.split('\n');

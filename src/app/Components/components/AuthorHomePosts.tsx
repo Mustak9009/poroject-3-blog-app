@@ -7,7 +7,7 @@ import Link from 'next/link';
 export const revalidate = 0
 export default function Hero({ authorID }: { authorID: string }) {
   const [posts, setPosts] = useState<PostsType[]>([]);
-  const { data, isLoading, isSuccess } = useQuery({queryKey: ["author_posts"],queryFn: () => getAllAuthorPosts({ authorId: authorID }),staleTime: 3 * 60 * 60 * 1000,});
+  const { data, isLoading, isSuccess } = useQuery({queryKey: ["author_posts"],queryFn: () => getAllAuthorPosts({ authorId: authorID })});
   useEffect(() => {
     if (data) {
       setPosts(data.authorAllPosts);
