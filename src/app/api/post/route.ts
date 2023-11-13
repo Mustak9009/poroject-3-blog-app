@@ -4,11 +4,12 @@ import { prisma } from "@/prisma";
 ConnectDB();
 export const GET = async (req: NextRequest) => {
     try{
-        // const postId  = req.nextUrl.searchParams.get('postId');
-        // if(!postId){
-        //     return NextResponse.json({error:'Required post id'},{status:422});
-        // }
-        const post = await prisma.posts.findUnique({where:{id:'65504db251adce2ab8c984fc'}});
+        const url = new URL(req.url);
+        const postId  = url.searchParams.get('postId');
+        if(!postId){
+            return NextResponse.json({error:'Required post id'},{status:422});
+        }
+        const post = await prisma.posts.findUnique({where:{id:postId}});
         return NextResponse.json({ post }, { status: 200 });
     }catch (err) {
     console.log(err);

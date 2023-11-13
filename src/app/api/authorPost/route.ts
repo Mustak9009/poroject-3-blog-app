@@ -5,12 +5,12 @@ import { prisma } from "@/prisma";
 ConnectDB();
 export const GET = async (req:NextRequest) => {
   try {
-    // const url = new URL(req.url);
-    // const authorId = req.nextUrl.searchParams.get('authorID');
-    // if(!authorId){
-    //   return NextResponse.json({error:'Required author id'},{status:422});
-    // }
-    const authorAllPosts = await prisma.posts.findMany({where:{authorId:'654dbb39294bfa1f00a580e1'}});
+    const url = new URL(req.url);
+    const authorId = url.searchParams.get('authorID');
+    if(!authorId){
+      return NextResponse.json({error:'Required author id'},{status:422});
+    }
+    const authorAllPosts = await prisma.posts.findMany({where:{authorId}});
     return NextResponse.json({ authorAllPosts }, { status: 200 });
   } catch (err) {
     console.log(err);
