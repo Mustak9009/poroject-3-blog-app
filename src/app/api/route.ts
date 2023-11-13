@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-export const revalidate = 0
 export const GET = async () => {
   try {
     return NextResponse.json({ ok: "Ok" }, { status: 200 });

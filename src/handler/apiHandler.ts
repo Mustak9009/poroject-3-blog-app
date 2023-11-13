@@ -10,7 +10,7 @@ type createPostPropsType = {
     img:string, 
     description:string
 }
-export const revalidate = 0
+
 export const RegisterNewUser = async({userName,email,password,user_type}:RegisterNewUserPropsType)=>{
     try{
         const data = await fetch("/api/auth/register",{
