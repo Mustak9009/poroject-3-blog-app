@@ -74,10 +74,25 @@ export const getAllAuthorPosts = async({authorId}:{authorId:string})=>{
         throw new Error("Something going wrong....!!!")
     }
 }
-
+export const checkEnvironment = () => {
+    let base_url =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://poroject-3-blog-app.vercel.app/"; // https://v2ds.netlify.app
+  
+    return base_url;
+  };
 export const getPost = async({postId}:{postId:string})=>{
     try{
-        const data = await fetch(`https://poroject-3-blog-app.vercel.app/api/post/?postId=${postId}`);
+        const data = await fetch(checkEnvironment().concat('/api/post'),{
+            method: "POST",     
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: JSON.stringify({postId}),
+        });
+  
         const res = await data.json();
         return res;
     }catch(err){

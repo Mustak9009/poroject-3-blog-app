@@ -17,7 +17,7 @@ export default function Post({id,title,img,description,createdAt}:PostsType) {
       </div>
       <section className="space-y-1">
         <h2 className="text-xl lg:text-2xl font-josefinSans cursor-pointer hover:underline">
-          <Link href={`/posts/post?postId=${id}`}>
+          <Link href={`/posts/${id}`}>
             {title}
           </Link>
         </h2>

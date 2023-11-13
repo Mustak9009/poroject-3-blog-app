@@ -34,18 +34,18 @@ const Post = ({post}:{post:{img:string,title:string,description:string,createdAt
       </div>
   );
 };
-export default async function PostPage({params,searchParams}:{ params: { slug: string }; searchParams?: { [key: string]: string | string[] | undefined }}) {
-  const search = searchParams;
-  let post;
-  if(search){
-    const data  = await getPost({postId:search.postId as string});
-    post = data.post;
-  }
-  
+export default async function PostPage({params,searchParams}:{ params: { postId: string }; searchParams?: { [key: string]: string | string[] | undefined }}) {
+  // const search = searchParams;
+  // let post;
+  // if(search){
+    //   post = data.post;
+    // }
+      const post  = await getPost({postId:params.postId});
+
   return (
     <div className="w-full h-full">
       <main className="grid lg:grid-cols-[75%_1fr] gap-5 pt-10">
-        <Post {...{post}}/>
+        <Post {...{...post}}/>
         <SideBar />
       </main>
     </div>
