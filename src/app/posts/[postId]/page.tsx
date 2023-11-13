@@ -7,7 +7,7 @@ const monthNames = [
   'January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 export const revalidate = 3 * 60 * 60 * 1000
 export const fetchCach = 'force-cache'
 const Post = ({post}:{post:{img:string,title:string,description:string,createdAt:string}}) => {
