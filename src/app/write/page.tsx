@@ -11,9 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import { CreatePost } from "@/handler/apiHandler";
 import { RxCrossCircled } from "react-icons/rx";
 const defaultImg = 'https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-export const dynamic = 'force-static'
-export const revalidate = 3 * 60 * 60 * 1000
-export const fetchCache  = 'force-cache'
+
 export default function Write() {
   const { data: session } = useSession();
   const [imgSrc, setImg] = useState(defaultImg);
