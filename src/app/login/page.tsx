@@ -35,7 +35,7 @@ export default function Login() {
         </div>
       )}
         <span className='text-4xl'>Login</span>
-        <form method='POST' className='w-[20%]' onSubmit={handleSubmit}>
+        <form method='POST' className='w-[90%] md:w-[20%]' onSubmit={handleSubmit}>
             <div className='flex flex-col my-3'>
                 <label htmlFor="email" className='text-gray-700'>Email</label>
                 <input type="email" name="email" id="email" placeholder='Enter email' className='outline-none bg-transparent border-2  px-2 py-1 rounded-md w-full' onChange={handleChange} onBlur={handleBlur} value={values.email}/>
