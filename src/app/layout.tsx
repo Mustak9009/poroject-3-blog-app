@@ -5,7 +5,7 @@ import AppContext from "@/context/appContext";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: "Learn more",
   description:

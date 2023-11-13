@@ -5,14 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import Post from './Post';
 export default  function Posts() {
   const [posts,setPosts] = useState<PostsType[]>([]);
-  const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts,staleTime: 3 * 60 * 60 * 1000});
+  const {data,isLoading} = useQuery({queryKey:['getPosts'],queryFn:getPosts});
   useEffect(()=>{
     if(data){
       const {posts} = data;
       setPosts(posts);
     }
   },[data]);
-  console.log(posts[0].id)
   return (
     <div className="w-full container mx-auto lg:px-10 py-5 space-y-5 relative">
      <b>Latest posts:</b>

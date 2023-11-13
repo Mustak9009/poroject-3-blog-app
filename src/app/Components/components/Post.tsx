@@ -8,7 +8,6 @@ const monthNames = [
 ];
 export default function Post({id,title,img,description,createdAt}:PostsType) {
   const data = new Date(createdAt);
-  const slug = title.split(' ').join('-').toLowerCase();
   return (
     <div className="w-full px-5 space-y-5" >
     <Image src={img} className="object-cover rounded-md w-full md:h-[30vh]" width={1000} height={100} alt="abx"/>
