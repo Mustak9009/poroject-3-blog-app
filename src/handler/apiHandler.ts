@@ -92,7 +92,7 @@ export const getAllAuthorPosts = async({authorId}:{authorId:string})=>{
 
 export const getPost = async({postId}:{postId:string})=>{
     try{
-        const data = await fetch('https://poroject-3-blog-app.vercel.app/api/post',{
+        const data = await fetch(checkEnvironment().concat('/api/post'),{
             method: "POST",     
                 headers: {
                     "Content-Type": "application/json",
