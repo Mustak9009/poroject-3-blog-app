@@ -9,7 +9,6 @@ const monthNames = [
 ];
 export const dynamic = 'force-static'
 export const revalidate = 3 * 60 * 60 * 1000
-export const fetchCach = 'force-cache'
 const Post = ({post}:{post:{img:string,title:string,description:string,createdAt:string}}) => {
   const data = new Date(post.createdAt);
   const text = post.description.split('\n');
