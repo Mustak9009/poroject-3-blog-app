@@ -17,7 +17,7 @@ export default function Login() {
     },
     onSubmit:({email,password})=>{
       setLoading(true);
-      signIn('credentials',{email,password,redirect:true,callbackUrl:'http://localhost:3000'});
+      signIn('credentials',{email,password,redirect:true,callbackUrl:'https://poroject-3-blog-app.vercel.app'});
     }
   });
   if(loading){
