@@ -64,16 +64,6 @@ export const getPosts = async()=>{
         throw new Error("Something going wrong....!!!")
     }
 }
-export const getAllAuthorPosts = async({authorId}:{authorId:string})=>{
-    try{
-        const data = await fetch(`/api/authorPost/?authorID=${authorId}`);
-        const res = await data.json();
-        return res;
-    }catch(err){
-        console.log(err);
-        throw new Error("Something going wrong....!!!")
-    }
-}
 export const checkEnvironment = () => {
     let base_url =
       process.env.NODE_ENV === "development"
@@ -82,6 +72,24 @@ export const checkEnvironment = () => {
   
     return base_url;
   };
+export const getAllAuthorPosts = async({authorId}:{authorId:string})=>{
+    try{
+        const data = await fetch(checkEnvironment().concat('/api/authorPost'),{
+            method: "POST",     
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: JSON.stringify({authorId}),
+        });
+        const res = await data.json();
+        return res;
+    }catch(err){
+        console.log(err);
+        throw new Error("Something going wrong....!!!")
+    }
+}
+
 export const getPost = async({postId}:{postId:string})=>{
     try{
         const data = await fetch(checkEnvironment().concat('/api/post'),{

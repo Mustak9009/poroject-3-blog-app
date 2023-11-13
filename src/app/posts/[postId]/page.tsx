@@ -35,12 +35,7 @@ const Post = ({post}:{post:{img:string,title:string,description:string,createdAt
   );
 };
 export default async function PostPage({params,searchParams}:{ params: { postId: string }; searchParams?: { [key: string]: string | string[] | undefined }}) {
-  // const search = searchParams;
-  // let post;
-  // if(search){
-    //   post = data.post;
-    // }
-      const post  = await getPost({postId:params.postId});
+  const post  = await getPost({postId:params.postId});
 
   return (
     <div className="w-full h-full">
