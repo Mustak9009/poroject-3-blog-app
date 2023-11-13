@@ -10,6 +10,8 @@ type createPostPropsType = {
     img:string, 
     description:string
 }
+export const dynamic = "force-dynamic"
+export const revalidate = 0
 export const RegisterNewUser = async({userName,email,password,user_type}:RegisterNewUserPropsType)=>{
     try{
         const data = await fetch("/api/auth/register",{
@@ -66,11 +68,7 @@ export const getPosts = async()=>{
 export const getAllAuthorPosts = async({authorId}:{authorId:string})=>{
     try{
         const data = await fetch(`/api/authorPost/?authorID=${authorId}`,{
-            
-                cache:'force-cache',
-                next:{
-                    revalidate:3 * 60 * 60 * 1000
-                }
+                cache:'no-store',
         });
         const res = await data.json();
         return res;
@@ -90,10 +88,7 @@ export const checkEnvironment = () => {
 export const getPost = async({postId}:{postId:string})=>{
     try{
         const data = await fetch(checkEnvironment().concat(`/api/post/?postId=${postId}`),{
-            cache:'force-cache',
-            next:{
-                revalidate:3 * 60 * 60 * 1000
-            }
+            cache:'no-store'
         });
         const res = await data.json();
         return res;
