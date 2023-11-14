@@ -13,3 +13,6 @@ export const writePostSchema = Yup.object({
     title:Yup.string().min(10).max(80).required('Title is required'),
     story:Yup.string().min(500).max(12000).required('Story is required')
 })
+export const updateUserSchema = Yup.object({
+    password:Yup.string().min(6).required('Please enter yoru password')
+})

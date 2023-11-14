@@ -108,3 +108,38 @@ export const getPost = async({postId}:{postId:string})=>{
         throw new Error("Something going wrong....!!!")
     }
 }
+export const updateUserDetails = async({userName,password}:{userName:string,password:string})=>{
+    try{
+        const data = await fetch('/api/updateUser',{
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: JSON.stringify({userName,password})
+        })
+        const res = await data.json();
+        return res;
+    }catch(err){
+        console.log(err);
+        throw new Error("Something going wrong....!!!")
+    }
+}
+export const deleteAccount = async({userId}:{userId:string})=>{
+    try{
+        const data = await fetch(checkEnvironment().concat('/api/deleteAccount'),{
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: JSON.stringify({userId})
+        })
+        const res = await data.json();
+        console.log(res);
+        return res;
+    }catch(err){
+        console.log(err);
+        throw new Error("Something going wrong....!!!")
+    }
+}

@@ -1,13 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import {BsCamera} from 'react-icons/bs';
+import {UserDetials} from '@/app/Components';
+import {getServerSession} from 'next-auth';
 
-export default function Settings() {
+import DeleteAccount from './DeleteAccount';
+import {authOption} from '@/app/api/auth/[...nextauth]/authOption';
+export default async function Settings() {
+  const session = await getServerSession(authOption);
+  const user = {
+    id:'',
+    userName:'',
+    email:''
+  }
+  if(session?.user.email && session.user.userName){
+    user.userName = session.user.userName;
+    user.email = session.user.email;
+    user.id = session.user.id
+  }
   return (
     <div className="px-5 w-full sm:w-[84%] mx-auto mt-10 font-youngSerif">
       <div className="my-5 flex justify-between items-center">
-        <h1 className="text-4xl lg:text-5xl text-red-400">Update Your Account.</h1>
-        <button className="text-red-400 text-xl hover:underline">Delete account</button>
+        <DeleteAccount userId={user.id}/>  
       </div>
       <div className="w-full h-full">
         <div className="my-5 space-y-2" title="Add picture">
@@ -18,21 +32,7 @@ export default function Settings() {
             </div>
         </div>
        <div className="mt-5 w-full">
-        <form method="POST">
-                <div className="flex flex-col my-5 gap-2">
-                    <label htmlFor="userName" className="text-gray-600">UserName</label>
-                    <input type="text" name="userName" id="userName" placeholder="user@name" className="outline-none border-b border-gray-400 py-2 px-2 "/>
-                </div>
-                <div className="flex flex-col my-5 gap-2">
-                    <label htmlFor="email" className="text-gray-600">Email</label>
-                    <input type="email" name="email" id="email" placeholder="abc@email.com" className="outline-none border-b border-gray-400 py-2 px-2 "/>
-                </div>
-                <div className="flex flex-col my-5 gap-2">
-                    <label htmlFor="password" className="text-gray-600">Password</label>
-                    <input type="password" name="password" id="password" placeholder="••••••••••••" className="outline-none border-b border-gray-400 py-2 px-2 "/>
-                </div>
-                <button type="submit" className="px-4 py-2 bg-teal-500 rounded-md text-white">Update</button>
-            </form>
+        <UserDetials userName={user.userName} email={user.email}/>
        </div>
       </div>
     </div>
